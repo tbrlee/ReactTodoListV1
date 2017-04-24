@@ -1,0 +1,97 @@
+var destination = document.querySelector("#container");
+var {Router,
+     Route,
+    IndexRoute, 
+    IndexLink,
+    Link} = ReactRouter;
+
+var Home = React.createClass({
+    render: function() {
+        return(
+            <div>
+                <h2>HELLO</h2>
+                <p>Accusantium quam, ultricies eget tempor id, aliquam eget nibh et. Maecen aliquam risus at semper ullam ger decorper, magna quam. Cras justo odio, apibus quam, ultricies eget tempor idac facilis.</p>
+
+                <p>Cras justo odio, apibus quam, ultricies eget tempor idac facilis.</p>
+            </div>
+        );
+    }
+});
+
+var App = React.createClass({
+    render: function() {
+        return(
+            <div>
+                <h1>Simple SPA</h1>
+                <ul className="header">
+                    <li><Link to="/">Home</li>
+                    <li><Link to="/stuff">Stuff</li>
+                    <li><Link to="/contact">Contact</li>
+                </ul>
+                <div className="content">
+                    {this.props.children}
+                </div>
+            </div>
+        )
+    }
+});
+
+ReactDOM.render(
+    <Router>
+        <Route path="/" component={App}>
+            <IndexRoute component={Home}/>
+        </Route>
+    </Router>,
+    destination
+    /*<ReactRouter.Router>
+        <ReactRouter.Route path="/" component={App}>
+        
+        </ReactRouter.Route>
+    </ReactRouter.Router>,
+    destination*/
+);
+
+
+<!-- styling -->
+        <style>
+      body {
+        background-color: #FFCC00;
+        padding: 20px;
+        margin: 0;
+      }
+      h1, h2, p, ul, li {
+        font-family: Helvetica, Arial, sans-serif;
+      }
+      ul.header li {
+        display: inline;
+        list-style-type: none;
+        margin: 0;
+      }
+      ul.header {
+        background-color: #111;
+        padding: 0;
+      }
+      ul.header li a {
+        color: #FFF;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 20px;
+        display: inline-block;
+      }
+      .content {
+        background-color: #FFF;
+        padding: 20px;
+      }
+      .content h2 {
+        padding: 0;
+        margin: 0;
+      }
+      .content li {
+        margin-bottom: 10px;
+      }
+      .active {
+        background-color: #0099FF;
+      }
+    </style>
+
+    script src="https://npmcdn.com/react-router@2.4.0/umd/ReactRouter.js"></script
